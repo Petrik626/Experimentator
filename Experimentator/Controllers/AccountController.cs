@@ -18,6 +18,8 @@ namespace Experimentator.Controllers
             signInManager = sign;
         }
 
+        public string Index() => "Success";
+
         [AllowAnonymous]
         public IActionResult Login(string returnUrl)
         {

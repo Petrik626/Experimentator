@@ -31,6 +31,7 @@ namespace Experimentator
                 options.Password.RequireDigit = true;
             }).AddEntityFrameworkStores<ExperimentatorDbContext>();
             services.AddMvc();
+            services.AddRouting();
         }
 
         public void Configure(IApplicationBuilder app)
@@ -39,7 +40,11 @@ namespace Experimentator
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
             app.UseIdentity();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute("default", "{controller}/{action}/{id?}", new { controller="Admin", action="Create"});
+            }
+            );
         }
     }
 }
