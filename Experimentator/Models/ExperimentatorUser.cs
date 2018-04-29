@@ -2,7 +2,7 @@
 
 namespace Experimentator.Models
 {
-    class ExperimentatorUser:IdentityUser
+    public class ExperimentatorUser:IdentityUser
     {
 
     }
