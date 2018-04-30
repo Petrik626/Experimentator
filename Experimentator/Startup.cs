@@ -40,6 +40,10 @@ namespace Experimentator
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
             app.UseIdentity();
+            app.UseWebpackDevMiddleware(new Microsoft.AspNetCore.SpaServices.Webpack.WebpackDevMiddlewareOptions
+            {
+                HotModuleReplacement = true
+            });
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default", "{controller}/{action}/{id?}", new { controller="Admin", action="Create"});
